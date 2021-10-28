@@ -19,7 +19,6 @@ config/description="Demo project featuring a collection of N64 style shaders and
 (MIT License)
 https://github.com/MenacingMecha/godot-n64-shader-demo/"
 run/main_scene="res://main.tscn"
-config/icon="res://readme-assets/screenshot.png"
 
 [display]
 
