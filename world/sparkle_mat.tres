@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://shaders/n64_unlit_particle.shader" type="Shader" id=1]
+[ext_resource path="res://world/sparkle.png" type="Texture" id=2]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/modulate_color = Color( 1, 1, 1, 0.792157 )
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/billboard = true
+shader_param/y_billboard = false
+shader_param/alpha_scissor = 0.1
+shader_param/albedoTex = ExtResource( 2 )

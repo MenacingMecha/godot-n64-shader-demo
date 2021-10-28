@@ -1,0 +1,133 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://world/orbit_camera.gd" type="Script" id=1]
+[ext_resource path="res://world/spatial_sin_pan.gd" type="Script" id=3]
+[ext_resource path="res://world/floor.tres" type="Material" id=4]
+[ext_resource path="res://world/object_mat.tres" type="Material" id=5]
+[ext_resource path="res://world/shadow/shadow.tscn" type="PackedScene" id=6]
+[ext_resource path="res://world/sparkle_mat.tres" type="Material" id=7]
+[ext_resource path="res://world/box.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://world/object_metal_mat.tres" type="Material" id=9]
+[ext_resource path="res://world/crystal/crystal_mesh.tscn" type="PackedScene" id=11]
+[ext_resource path="res://world/particle_reset.gd" type="Script" id=13]
+[ext_resource path="res://world/bevel-box.glb" type="PackedScene" id=14]
+[ext_resource path="res://world/world_env.tres" type="Environment" id=15]
+[ext_resource path="res://world/light-shaft.glb" type="PackedScene" id=16]
+[ext_resource path="res://shaders/light-volume.shader" type="Shader" id=17]
+[ext_resource path="res://world/stairs/oot-stair.glb" type="PackedScene" id=18]
+[ext_resource path="res://world/stairs/side_n64_mat.tres" type="Material" id=19]
+[ext_resource path="res://world/stairs/top_n64_mat.tres" type="Material" id=20]
+
+[sub_resource type="ParticlesMaterial" id=1]
+direction = Vector3( 1, 1, 1 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 3.0
+initial_velocity_random = 0.3
+damping = 1.0
+
+[sub_resource type="QuadMesh" id=2]
+material = ExtResource( 7 )
+size = Vector2( 0.5, 0.5 )
+
+[sub_resource type="PlaneMesh" id=3]
+size = Vector2( 40, 40 )
+subdivide_width = 25
+subdivide_depth = 25
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 3.0314, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 17 )
+
+[node name="World" type="Spatial"]
+
+[node name="BoxChrome" type="Spatial" parent="."]
+transform = Transform( 0.613118, 0, 0, 0, 0.613118, 0, 0, 0, 0.613118, -1, 2.236, 0 )
+script = ExtResource( 3 )
+shadow_path = NodePath("../BoxShadow")
+
+[node name="bevel-box" parent="BoxChrome" instance=ExtResource( 14 )]
+
+[node name="Cube" parent="BoxChrome/bevel-box" index="0"]
+material/0 = ExtResource( 9 )
+
+[node name="Particles" type="Particles" parent="BoxChrome"]
+transform = Transform( 0.999973, 0.00729208, -0.00112456, -0.00729237, 0.999973, -0.000250523, 0.00112271, 0.000258713, 0.999999, 0, 0, 0 )
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 2 )
+script = ExtResource( 13 )
+
+[node name="BoxShadow" parent="." instance=ExtResource( 6 )]
+transform = Transform( 3.2649, 0, 0, 0, -1.42713e-07, 1, 0, -3.2649, -4.37114e-08, -1.05202, 0.0997695, 0.0395253 )
+
+[node name="BoxLit" type="MeshInstance" parent="."]
+transform = Transform( 0.613118, 0, 0, 0, 0.613118, 0, 0, 0, 0.613118, 1, 2.236, 0 )
+visible = false
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 5 )
+script = ExtResource( 3 )
+shadow_path = NodePath("../BoxShadow2")
+rotation_speed = 0.0
+translation_distance = -0.5
+
+[node name="BoxShadow2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 3.2649, 0, 0, 0, -1.42713e-07, 1, 0, -3.2649, -4.37114e-08, 0.651182, 0.507847, 0.572559 )
+visible = false
+
+[node name="Floor" type="MeshInstance" parent="."]
+mesh = SubResource( 3 )
+material/0 = ExtResource( 4 )
+
+[node name="FloorBody" type="StaticBody" parent="Floor"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor/FloorBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.993481, 0 )
+shape = SubResource( 4 )
+
+[node name="OrbitPoint" type="Spatial" parent="."]
+transform = Transform( 0.831023, 0, -0.556238, 0, 1, 0, 0.556238, 0, 0.831023, 0, -2.38419e-07, -4.76837e-07 )
+script = ExtResource( 1 )
+rotate_camera = true
+
+[node name="Camera" type="Camera" parent="OrbitPoint"]
+transform = Transform( 1, 0, 0, 0, 0.989078, 0.147395, 0, -0.147395, 0.989078, 0, 2.147, 4.48151 )
+fov = 68.1243
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 15 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.524194, -0.536217, 0.661583, 0, 0.776871, 0.629659, -0.851599, -0.330064, 0.407231, 4.40183, 2.79045, 2.57139 )
+light_bake_mode = 0
+
+[node name="crystal" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.719146, 0, 0.694859, 0, 1, 0, -0.694859, 0, 0.719146, 2.32347, 0, 1.434 )
+
+[node name="crystal2" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.826285, 0, -0.563252, 0, 1, 0, 0.563252, 0, 0.826285, -1.32247, 0, 1.77809 )
+
+[node name="crystal3" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.864371, 0, 0.502854, 0, 1, 0, -0.502854, 0, 0.864371, -2.32825, 0, -0.999177 )
+
+[node name="crystal4" parent="." instance=ExtResource( 11 )]
+transform = Transform( -0.632935, 0, 0.774205, 0, 1, 0, -0.774205, 0, -0.632935, 2.30476, 0, -1.16371 )
+
+[node name="light-shaft" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.057, 0 )
+
+[node name="Cube" parent="light-shaft" index="0"]
+material/0 = SubResource( 5 )
+
+[node name="oot-stair" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.601188, 0, 0 )
+
+[node name="Cube001" parent="oot-stair" index="0"]
+transform = Transform( 0.707284, 0, 0, 0, 0.707284, 0, 0, 0, 0.707284, 0, 0, 0 )
+material/0 = ExtResource( 19 )
+material/1 = ExtResource( 20 )
+
+[editable path="BoxChrome/bevel-box"]
+[editable path="light-shaft"]
+[editable path="oot-stair"]

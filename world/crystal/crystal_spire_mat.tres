@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://shaders/n64_lit.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/modulate_color = Color( 1, 0, 0.917647, 0.376471 )
+shader_param/uv_scale = Vector2( 1, 1 )
+shader_param/uv_offset = Vector2( 0, 0 )
+shader_param/uv_pan_velocity = Vector2( 0, 0 )
