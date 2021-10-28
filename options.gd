@@ -42,3 +42,6 @@ func set_ambient_energy(value: float):
 
 func set_aa(enabled: bool):
 	world_viewport.msaa = Viewport.MSAA_4X if enabled else Viewport.MSAA_DISABLED
+
+func set_limit_colors(enabled: bool):
+	post_process_dither_band.set_shader_param("enabled", enabled)
