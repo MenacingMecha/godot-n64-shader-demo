@@ -1,6 +1,22 @@
 # Godot PSX Style Demo
 
+<div align="center">
+  <a href="https://godotengine.org/" alt="Language">
+    <img src="https://img.shields.io/badge/Godot-478CBF?style=for-the-badge&logo=GodotEngine&logoColor=white" /></a>
+   
+  <a href="#" alt="License" href="https://github.com/MenacingMecha/godot-n64-shader-demo/blob/master/LICENSE">
+    <img src="https://img.shields.io/static/v1?label=License&message=MIT&color=black&style=for-the-badge" /></a>  
+  
+</div>
+    
+## Demo Controls
 [Play demo in browser!](https://menacingmecha.itch.io/godot-n64-shader-demo)
+
+- Space: Toggle camera and object movement
+- R: Reset scene
+
+
+
 
 ![Example Screenshot](./readme-assets/screenshot.png)
 
@@ -15,11 +31,6 @@ A collection of shaders and materials for Godot engine that aim to recreate the 
 - Shiny chrome-like metallic surfaces
 - Billboard sprites
 - Fog to limit draw distance
-
-## Demo Controls
-
-- Space: Toggle camera and object movement
-- R: Reset scene
 
 ## Tips for best results
 
@@ -38,4 +49,7 @@ A collection of shaders and materials for Godot engine that aim to recreate the 
     - Modern lighting techniques are a very easy way to break the illusion of appearing like early 3D!
     - Where possible, prefer to use white ambient light, with vertex colours on geometry to fake lighting
 
-Floor texture (available under CC-0): https://stealthix.itch.io/rpg-nature-tileset
+
+
+Floor texture [available under CC-0](https://stealthix.itch.io/rpg-nature-tileset)
+
