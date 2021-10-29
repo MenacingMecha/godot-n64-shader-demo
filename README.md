@@ -1,4 +1,4 @@
-# Godot PSX Style Demo
+# Godot N64 Style Demo
 
 <div align="center">
   <a href="https://godotengine.org/" alt="Language">
