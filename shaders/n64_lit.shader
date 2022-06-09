@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode diffuse_lambert, vertex_lighting, cull_disabled, shadows_disabled, world_vertex_coords, specular_disabled;
+render_mode diffuse_lambert, vertex_lighting, cull_disabled, shadows_disabled, specular_disabled;
 
 uniform vec4 modulate_color : hint_color = vec4(1.0);
 uniform sampler2D albedoTex : hint_albedo;
