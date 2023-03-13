@@ -84,4 +84,3 @@ quality/shading/force_blinn_over_ggx=true
 quality/subsurface_scattering/quality=0
 quality/subsurface_scattering/weight_samples=false
 quality/filters/msaa=1
-environment/default_environment="res://default_env.tres"
