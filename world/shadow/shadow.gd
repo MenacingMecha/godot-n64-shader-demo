@@ -1,4 +1,4 @@
-extends Sprite3D
+extends Spatial
 
 export (float, 0, 10) var scale_min = 1
 export (float, 0, 10) var scale_max = 2
