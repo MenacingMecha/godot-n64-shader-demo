@@ -1,6 +1,7 @@
 [gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://world/orbit_camera.gd" type="Script" id=1]
+[ext_resource path="res://world/bevel-box.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://world/spatial_sin_pan.gd" type="Script" id=3]
 [ext_resource path="res://world/floor.tres" type="Material" id=4]
 [ext_resource path="res://world/object_mat.tres" type="Material" id=5]
@@ -10,7 +11,6 @@
 [ext_resource path="res://world/object_metal_mat.tres" type="Material" id=9]
 [ext_resource path="res://world/crystal/crystal_mesh.tscn" type="PackedScene" id=11]
 [ext_resource path="res://world/particle_reset.gd" type="Script" id=13]
-[ext_resource path="res://world/bevel-box.glb" type="PackedScene" id=14]
 [ext_resource path="res://world/world_env.tres" type="Environment" id=15]
 [ext_resource path="res://world/light-shaft.glb" type="PackedScene" id=16]
 [ext_resource path="res://shaders/light-volume.shader" type="Shader" id=17]
@@ -43,17 +43,14 @@ shader = ExtResource( 17 )
 
 [node name="World" type="Spatial"]
 
-[node name="BoxChrome" type="Spatial" parent="."]
+[node name="BoxMetal" type="MeshInstance" parent="."]
 transform = Transform( 0.613118, 0, 0, 0, 0.613118, 0, 0, 0, 0.613118, -1, 2.236, 0 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 9 )
 script = ExtResource( 3 )
 shadow_path = NodePath("../BoxShadow")
 
-[node name="bevel-box" parent="BoxChrome" instance=ExtResource( 14 )]
-
-[node name="Cube" parent="BoxChrome/bevel-box" index="0"]
-material/0 = ExtResource( 9 )
-
-[node name="Particles" type="Particles" parent="BoxChrome"]
+[node name="Particles" type="Particles" parent="BoxMetal"]
 transform = Transform( 0.999973, 0.00729208, -0.00112456, -0.00729237, 0.999973, -0.000250523, 0.00112271, 0.000258713, 0.999999, 0, 0, 0 )
 process_material = SubResource( 1 )
 draw_pass_1 = SubResource( 2 )
@@ -128,6 +125,5 @@ transform = Transform( 0.707284, 0, 0, 0, 0.707284, 0, 0, 0, 0.707284, 0, 0, 0 )
 material/0 = ExtResource( 19 )
 material/1 = ExtResource( 20 )
 
-[editable path="BoxChrome/bevel-box"]
 [editable path="light-shaft"]
 [editable path="oot-stair"]
