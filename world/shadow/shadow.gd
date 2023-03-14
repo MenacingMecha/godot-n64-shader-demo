@@ -1,6 +1,6 @@
 extends Spatial
 
-const SpatialSinPan := preload("res://world/spatial_sin_pan.gd")
+const SpatialSinPan := preload("res://world/box/spatial_sin_pan.gd")
 
 const SCALE_DISTANCE := 0.225
 const DEFAULT_SCALE := Vector3.ONE * 1.775

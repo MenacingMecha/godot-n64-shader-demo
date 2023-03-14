@@ -1,0 +1,381 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gui/options.gd" type="Script" id=1]
+[ext_resource path="res://world/world_env.tres" type="Environment" id=2]
+[ext_resource path="res://post-process/pp_h-blur.tres" type="Material" id=3]
+[ext_resource path="res://gui/value_label.gd" type="Script" id=4]
+[ext_resource path="res://post-process/pp_dither-band.tres" type="Material" id=5]
+
+[node name="Options" type="VBoxContainer"]
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.05
+anchor_bottom = 0.98
+margin_right = 108.0
+
+[node name="ToggleOptions" type="Button" parent="."]
+self_modulate = Color( 1, 1, 1, 0.392157 )
+margin_right = 146.0
+margin_bottom = 20.0
+focus_mode = 0
+toggle_mode = true
+enabled_focus_mode = 0
+text = "Toggle Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsPanel" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.392157 )
+margin_top = 24.0
+margin_right = 146.0
+margin_bottom = 698.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+post_process_blur = ExtResource( 3 )
+post_process_dither_band = ExtResource( 5 )
+environment = ExtResource( 2 )
+path_to_world_viewport = NodePath("../../../N64Layer/HBlur/Viewport/DitherBand/Viewport")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FPS" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
+margin_right = 138.0
+margin_bottom = 16.0
+
+[node name="Title" type="Label" parent="OptionsPanel/VBoxContainer/FPS"]
+margin_top = 1.0
+margin_right = 22.0
+margin_bottom = 15.0
+text = "FPS"
+
+[node name="HSlider" type="HSlider" parent="OptionsPanel/VBoxContainer/FPS"]
+margin_left = 26.0
+margin_right = 118.0
+margin_bottom = 16.0
+focus_mode = 0
+size_flags_horizontal = 3
+min_value = 10.0
+max_value = 60.0
+value = 24.0
+
+[node name="Value" type="Label" parent="OptionsPanel/VBoxContainer/FPS"]
+margin_left = 122.0
+margin_top = 1.0
+margin_right = 138.0
+margin_bottom = 15.0
+text = "24"
+script = ExtResource( 4 )
+
+[node name="AA" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
+margin_top = 20.0
+margin_right = 138.0
+margin_bottom = 44.0
+
+[node name="Title" type="Label" parent="OptionsPanel/VBoxContainer/AA"]
+margin_top = 5.0
+margin_right = 81.0
+margin_bottom = 19.0
+text = "Anti-Aliasing"
+
+[node name="CheckBox" type="CheckBox" parent="OptionsPanel/VBoxContainer/AA"]
+margin_left = 114.0
+margin_right = 138.0
+margin_bottom = 24.0
+focus_mode = 0
+size_flags_horizontal = 10
+pressed = true
+enabled_focus_mode = 0
+
+[node name="HSeparator2" type="HSeparator" parent="OptionsPanel/VBoxContainer"]
+margin_top = 48.0
+margin_right = 138.0
+margin_bottom = 52.0
+
+[node name="LimitColors" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
+margin_top = 56.0
+margin_right = 138.0
+margin_bottom = 80.0
+
+[node name="Title" type="Label" parent="OptionsPanel/VBoxContainer/LimitColors"]
+margin_top = 5.0
+margin_right = 77.0
+margin_bottom = 19.0
+text = "Limit Colors"
+
+[node name="CheckBox" type="CheckBox" parent="OptionsPanel/VBoxContainer/LimitColors"]
+margin_left = 114.0
+margin_right = 138.0
+margin_bottom = 24.0
+focus_mode = 0
+size_flags_horizontal = 10
+pressed = true
+enabled_focus_mode = 0
+
+[node name="ColorDepth" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
+margin_top = 84.0
+margin_right = 138.0
+margin_bottom = 100.0
+
+[node name="Title" type="Label" parent="OptionsPanel/VBoxContainer/ColorDepth"]
+margin_top = 1.0
+margin_right = 67.0
+margin_bottom = 15.0
+text = "Col. Depth"
+
+[node name="HSlider" type="HSlider" parent="OptionsPanel/VBoxContainer/ColorDepth"]
+margin_left = 71.0
+margin_right = 118.0
+margin_bottom = 16.0
+focus_mode = 0
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 32.0
+value = 24.0
+
+[node name="Value" type="Label" parent="OptionsPanel/VBoxContainer/ColorDepth"]
+margin_left = 122.0
+margin_top = 1.0
+margin_right = 138.0
+margin_bottom = 15.0
+text = "24"
+script = ExtResource( 4 )
+
+[node name="DitherBanding" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
+margin_top = 104.0
+margin_right = 138.0
+margin_bottom = 128.0
+
+[node name="Title" type="Label" parent="OptionsPanel/VBoxContainer/DitherBanding"]
+margin_top = 5.0
+margin_right = 95.0
+margin_bottom = 19.0
+text = "Dither Banding"
+
+[node name="CheckBox" type="CheckBox" parent="OptionsPanel/VBoxContainer/DitherBanding"]
+margin_left = 114.0
+margin_right = 138.0
+margin_bottom = 24.0
+focus_mode = 0
+size_flags_horizontal = 10
+pressed = true
+enabled_focus_mode = 0
+
+[node name="HBlur" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
+margin_top = 132.0
+margin_right = 138.0
+margin_bottom = 156.0
+
+[node name="Title" type="Label" parent="OptionsPanel/VBoxContainer/HBlur"]
+margin_top = 5.0
+margin_right = 96.0
+margin_bottom = 19.0
+text = "Horizontal Blur"
+
+[node name="CheckBox" type="CheckBox" parent="OptionsPanel/VBoxContainer/HBlur"]
+margin_left = 114.0
+margin_right = 138.0
+margin_bottom = 24.0
+focus_mode = 0
+size_flags_horizontal = 10
+pressed = true
+enabled_focus_mode = 0
+
+[node name="HSeparator" type="HSeparator" parent="OptionsPanel/VBoxContainer"]
+margin_top = 160.0
+margin_right = 138.0
+margin_bottom = 164.0
+
+[node name="FogEnabled" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
+margin_top = 168.0
+margin_right = 138.0
+margin_bottom = 192.0
+
+[node name="Title" type="Label" parent="OptionsPanel/VBoxContainer/FogEnabled"]
+margin_top = 5.0
+margin_right = 76.0
+margin_bottom = 19.0
+text = "Fog Enabled"
+
+[node name="CheckBox" type="CheckBox" parent="OptionsPanel/VBoxContainer/FogEnabled"]
+margin_left = 114.0
+margin_right = 138.0
+margin_bottom = 24.0
+focus_mode = 0
+size_flags_horizontal = 10
+pressed = true
+enabled_focus_mode = 0
+
+[node name="FogColor" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
+margin_top = 196.0
+margin_right = 138.0
+margin_bottom = 216.0
+
+[node name="Title" type="Label" parent="OptionsPanel/VBoxContainer/FogColor"]
+margin_top = 3.0
+margin_right = 59.0
+margin_bottom = 17.0
+size_flags_horizontal = 5
+text = "Fog Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="OptionsPanel/VBoxContainer/FogColor"]
+margin_left = 63.0
+margin_right = 138.0
+margin_bottom = 20.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+enabled_focus_mode = 0
+color = Color( 0.666667, 0.764706, 1, 0.960784 )
+
+[node name="FogBegin" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
+margin_top = 220.0
+margin_right = 138.0
+margin_bottom = 236.0
+
+[node name="Title" type="Label" parent="OptionsPanel/VBoxContainer/FogBegin"]
+margin_top = 1.0
+margin_right = 36.0
+margin_bottom = 15.0
+text = "Begin"
+
+[node name="HSlider" type="HSlider" parent="OptionsPanel/VBoxContainer/FogBegin"]
+margin_left = 40.0
+margin_right = 118.0
+margin_bottom = 16.0
+focus_mode = 0
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 30.0
+value = 6.0
+
+[node name="Value" type="Label" parent="OptionsPanel/VBoxContainer/FogBegin"]
+margin_left = 122.0
+margin_top = 1.0
+margin_right = 138.0
+margin_bottom = 15.0
+text = "06"
+script = ExtResource( 4 )
+
+[node name="FogEnd" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
+margin_top = 240.0
+margin_right = 138.0
+margin_bottom = 256.0
+
+[node name="Title" type="Label" parent="OptionsPanel/VBoxContainer/FogEnd"]
+margin_top = 1.0
+margin_right = 35.0
+margin_bottom = 15.0
+text = "End   "
+
+[node name="HSlider" type="HSlider" parent="OptionsPanel/VBoxContainer/FogEnd"]
+margin_left = 39.0
+margin_right = 118.0
+margin_bottom = 16.0
+focus_mode = 0
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 30.0
+value = 15.0
+
+[node name="Value" type="Label" parent="OptionsPanel/VBoxContainer/FogEnd"]
+margin_left = 122.0
+margin_top = 1.0
+margin_right = 138.0
+margin_bottom = 15.0
+text = "15"
+script = ExtResource( 4 )
+
+[node name="HSeparator3" type="HSeparator" parent="OptionsPanel/VBoxContainer"]
+margin_top = 260.0
+margin_right = 138.0
+margin_bottom = 264.0
+
+[node name="AmbientLight" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
+margin_top = 268.0
+margin_right = 138.0
+margin_bottom = 288.0
+
+[node name="Title" type="Label" parent="OptionsPanel/VBoxContainer/AmbientLight"]
+margin_top = 3.0
+margin_right = 90.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Ambient Light"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="OptionsPanel/VBoxContainer/AmbientLight"]
+margin_left = 94.0
+margin_right = 138.0
+margin_bottom = 20.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+enabled_focus_mode = 0
+color = Color( 1, 0.67451, 0.988235, 1 )
+edit_alpha = false
+
+[node name="AmbientEnergy" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
+margin_top = 292.0
+margin_right = 138.0
+margin_bottom = 308.0
+
+[node name="Title" type="Label" parent="OptionsPanel/VBoxContainer/AmbientEnergy"]
+margin_top = 1.0
+margin_right = 42.0
+margin_bottom = 15.0
+text = "Energy"
+
+[node name="HSlider" type="HSlider" parent="OptionsPanel/VBoxContainer/AmbientEnergy"]
+margin_left = 46.0
+margin_right = 106.0
+margin_bottom = 16.0
+focus_mode = 0
+size_flags_horizontal = 3
+max_value = 0.5
+step = 0.01
+value = 0.15
+
+[node name="Value" type="Label" parent="OptionsPanel/VBoxContainer/AmbientEnergy"]
+margin_left = 110.0
+margin_top = 1.0
+margin_right = 138.0
+margin_bottom = 15.0
+text = "0.15"
+script = ExtResource( 4 )
+
+[connection signal="mouse_entered" from="ToggleOptions" to="ToggleOptions" method="set_self_modulate" flags=3 binds= [ Color( 1, 1, 1, 1 ) ]]
+[connection signal="mouse_exited" from="ToggleOptions" to="ToggleOptions" method="set_self_modulate" flags=3 binds= [ Color( 1, 1, 1, 0.392157 ) ]]
+[connection signal="toggled" from="ToggleOptions" to="OptionsPanel" method="set_visible" flags=3]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/FPS/HSlider" to="OptionsPanel" method="set_fov" flags=3]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/FPS/HSlider" to="OptionsPanel/VBoxContainer/FPS/Value" method="set_text_from_value" flags=3]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/AA/CheckBox" to="OptionsPanel" method="set_aa" flags=3]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/LimitColors/CheckBox" to="OptionsPanel" method="set_limit_colors" flags=3]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/LimitColors/CheckBox" to="OptionsPanel/VBoxContainer/ColorDepth" method="set_visible"]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/LimitColors/CheckBox" to="OptionsPanel/VBoxContainer/DitherBanding" method="set_visible"]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/ColorDepth/HSlider" to="OptionsPanel" method="set_color_depth" flags=3]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/ColorDepth/HSlider" to="OptionsPanel/VBoxContainer/ColorDepth/Value" method="set_text_from_value" flags=3]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/DitherBanding/CheckBox" to="OptionsPanel" method="set_dither_banding" flags=3]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/HBlur/CheckBox" to="OptionsPanel" method="set_post_process" flags=3]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/FogEnabled/CheckBox" to="OptionsPanel" method="set_fog_enabled" flags=3]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/FogEnabled/CheckBox" to="OptionsPanel/VBoxContainer/FogColor" method="set_visible"]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/FogEnabled/CheckBox" to="OptionsPanel/VBoxContainer/FogBegin" method="set_visible"]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/FogEnabled/CheckBox" to="OptionsPanel/VBoxContainer/FogEnd" method="set_visible"]
+[connection signal="color_changed" from="OptionsPanel/VBoxContainer/FogColor/ColorPickerButton" to="OptionsPanel" method="set_fog_color" flags=3]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/FogBegin/HSlider" to="OptionsPanel" method="set_fog_depth_begin" flags=3]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/FogBegin/HSlider" to="OptionsPanel/VBoxContainer/FogBegin/Value" method="set_text_from_value" flags=3]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/FogEnd/HSlider" to="OptionsPanel" method="set_fog_depth_end" flags=3]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/FogEnd/HSlider" to="OptionsPanel/VBoxContainer/FogEnd/Value" method="set_text_from_value" flags=3]
+[connection signal="color_changed" from="OptionsPanel/VBoxContainer/AmbientLight/ColorPickerButton" to="OptionsPanel" method="set_ambient_light_color" flags=3]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/AmbientEnergy/HSlider" to="OptionsPanel" method="set_ambient_energy" flags=3]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/AmbientEnergy/HSlider" to="OptionsPanel/VBoxContainer/AmbientEnergy/Value" method="set_text_from_value" flags=3 binds= [ false ]]

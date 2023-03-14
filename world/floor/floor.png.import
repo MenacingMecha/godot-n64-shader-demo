@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sparkle.png-5a57986f8761be079cce0f8258b14322.stex"
+path="res://.import/floor.png-07bd8a5d1a5a27111249edcc10f8f960.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/sparkle.png"
-dest_files=[ "res://.import/sparkle.png-5a57986f8761be079cce0f8258b14322.stex" ]
+source_file="res://world/floor/floor.png"
+dest_files=[ "res://.import/floor.png-07bd8a5d1a5a27111249edcc10f8f960.stex" ]
 
 [params]
 
@@ -19,13 +19,13 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=1
-process/fix_alpha_border=false
-process/premult_alpha=true
+process/fix_alpha_border=true
+process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
 process/normal_map_invert_y=false

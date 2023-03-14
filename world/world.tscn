@@ -1,15 +1,15 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://world/orbit_camera.gd" type="Script" id=1]
-[ext_resource path="res://world/bevel-box.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://world/spatial_sin_pan.gd" type="Script" id=3]
-[ext_resource path="res://world/floor.tres" type="Material" id=4]
+[ext_resource path="res://world/box/bevel-box.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://world/box/spatial_sin_pan.gd" type="Script" id=3]
+[ext_resource path="res://world/floor/floor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://world/shadow/shadow.tscn" type="PackedScene" id=6]
-[ext_resource path="res://world/sparkle_mat.tres" type="Material" id=7]
-[ext_resource path="res://world/object_metal_mat.tres" type="Material" id=9]
-[ext_resource path="res://world/light-shaft_mat.tres" type="Material" id=10]
+[ext_resource path="res://world/box/sparkle_mat.tres" type="Material" id=7]
+[ext_resource path="res://world/box/object_metal_mat.tres" type="Material" id=9]
+[ext_resource path="res://world/light-shaft/light-shaft_mat.tres" type="Material" id=10]
 [ext_resource path="res://world/crystal/crystal_mesh.tscn" type="PackedScene" id=11]
-[ext_resource path="res://world/light-shaft_Mesh.mesh" type="ArrayMesh" id=12]
+[ext_resource path="res://world/light-shaft/light-shaft_Mesh.mesh" type="ArrayMesh" id=12]
 [ext_resource path="res://world/stairs/stairs_Mesh.mesh" type="ArrayMesh" id=14]
 [ext_resource path="res://world/world_env.tres" type="Environment" id=15]
 [ext_resource path="res://world/scene_controls.gd" type="Script" id=16]
@@ -27,11 +27,6 @@ damping = 1.0
 [sub_resource type="QuadMesh" id=2]
 material = ExtResource( 7 )
 size = Vector2( 0.5, 0.5 )
-
-[sub_resource type="PlaneMesh" id=3]
-size = Vector2( 40, 40 )
-subdivide_width = 25
-subdivide_depth = 25
 
 [node name="World" type="Spatial"]
 
@@ -67,9 +62,7 @@ draw_pass_1 = SubResource( 2 )
 [node name="BoxShadow" parent="." groups=["can_pause", "can_restart"] instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.052, 0, 0.04 )
 
-[node name="Floor" type="MeshInstance" parent="."]
-mesh = SubResource( 3 )
-material/0 = ExtResource( 4 )
+[node name="Floor" parent="." instance=ExtResource( 4 )]
 
 [node name="crystal" parent="." instance=ExtResource( 11 )]
 transform = Transform( 0.719146, 0, 0.694859, 0, 1, 0, -0.694859, 0, 0.719146, 2.32347, 0, 1.434 )

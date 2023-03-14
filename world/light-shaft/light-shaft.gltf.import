@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/light-shaft.gltf-f7ea5c0f8933e1f77f9c7b051bfd19b9.scn"
+path="res://.import/light-shaft.gltf-48bf216081c2e27ec22cc4604158d806.scn"
 
 [deps]
 
-source_file="res://world/light-shaft.gltf"
-dest_files=[ "res://.import/light-shaft.gltf-f7ea5c0f8933e1f77f9c7b051bfd19b9.scn" ]
+source_file="res://world/light-shaft/light-shaft.gltf"
+dest_files=[ "res://.import/light-shaft.gltf-48bf216081c2e27ec22cc4604158d806.scn" ]
 
 [params]
 
