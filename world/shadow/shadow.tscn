@@ -8,9 +8,6 @@ size = Vector2( 1, 1 )
 
 [node name="BoxShadow" type="Spatial"]
 script = ExtResource( 2 )
-scale_min = 3.0
-scale_max = 7.0
-max_distance_from_ground = 3.0
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
