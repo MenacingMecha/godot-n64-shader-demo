@@ -1,12 +1,12 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=2]
 
 [ext_resource path="res://shaders/n64_lit.shader" type="Shader" id=1]
-[ext_resource path="res://world/stairs/libre_top.png" type="Texture" id=2]
+[ext_resource path="res://world/stairs/stairs_side.png" type="Texture" id=2]
 
 [resource]
 shader = ExtResource( 1 )
 shader_param/modulate_color = Color( 1, 1, 1, 1 )
-shader_param/uv_scale = Vector2( 1, 8 )
+shader_param/uv_scale = Vector2( 1, 1 )
 shader_param/uv_offset = Vector2( 0, 0 )
 shader_param/uv_pan_velocity = Vector2( 0, 0 )
 shader_param/albedoTex = ExtResource( 2 )

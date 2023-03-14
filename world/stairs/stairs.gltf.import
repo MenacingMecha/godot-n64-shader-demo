@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/oot-stair.glb-e76e369d2dd08e07651194c892bcf177.scn"
+path="res://.import/stairs.gltf-627eb097c1432ffe8266ecc737d86add.scn"
 
 [deps]
 
-source_file="res://world/stairs/oot-stair.glb"
-dest_files=[ "res://.import/oot-stair.glb-e76e369d2dd08e07651194c892bcf177.scn" ]
+source_file="res://world/stairs/stairs.gltf"
+dest_files=[ "res://.import/stairs.gltf-627eb097c1432ffe8266ecc737d86add.scn" ]
 
 [params]
 
@@ -16,14 +16,14 @@ nodes/root_name="Scene Root"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
-nodes/use_legacy_names=false
+nodes/use_legacy_names=true
 materials/location=1
-materials/storage=1
-materials/keep_on_reimport=true
+materials/storage=0
+materials/keep_on_reimport=false
 meshes/octahedral_compression=true
-meshes/compress=true
+meshes/compress=4286
 meshes/ensure_tangents=true
-meshes/storage=0
+meshes/storage=1
 meshes/light_baking=0
 meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true

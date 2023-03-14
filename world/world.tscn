@@ -13,10 +13,10 @@
 [ext_resource path="res://world/crystal/crystal_mesh.tscn" type="PackedScene" id=11]
 [ext_resource path="res://world/light-shaft_Mesh.mesh" type="ArrayMesh" id=12]
 [ext_resource path="res://world/particle_reset.gd" type="Script" id=13]
+[ext_resource path="res://world/stairs/stairs_Mesh.mesh" type="ArrayMesh" id=14]
 [ext_resource path="res://world/world_env.tres" type="Environment" id=15]
-[ext_resource path="res://world/stairs/oot-stair.glb" type="PackedScene" id=18]
-[ext_resource path="res://world/stairs/side_n64_mat.tres" type="Material" id=19]
-[ext_resource path="res://world/stairs/top_n64_mat.tres" type="Material" id=20]
+[ext_resource path="res://world/stairs/stairs_side_mat.tres" type="Material" id=19]
+[ext_resource path="res://world/stairs/stairs_top_mat.tres" type="Material" id=20]
 
 [sub_resource type="ParticlesMaterial" id=1]
 direction = Vector3( 1, 1, 1 )
@@ -114,12 +114,9 @@ mesh = ExtResource( 12 )
 skeleton = NodePath("")
 material/0 = ExtResource( 10 )
 
-[node name="oot-stair" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.601188, 0, 0 )
-
-[node name="Cube001" parent="oot-stair" index="0"]
-transform = Transform( 0.707284, 0, 0, 0, 0.707284, 0, 0, 0, 0.707284, 0, 0, 0 )
+[node name="Stairs" type="MeshInstance" parent="."]
+transform = Transform( 0.707, 0, 0, 0, 0.707, 0, 0, 0, 0.707, 0.601188, 0, 0 )
+mesh = ExtResource( 14 )
+skeleton = NodePath("")
 material/0 = ExtResource( 19 )
 material/1 = ExtResource( 20 )
-
-[editable path="oot-stair"]

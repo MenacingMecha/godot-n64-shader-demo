@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/libre_top.png-43cc943b9c10fb9433a9e4fb3ea39996.stex"
+path="res://.import/stairs_side.png-b24fc00822520c9d5e1947b6b02236f3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/stairs/libre_top.png"
-dest_files=[ "res://.import/libre_top.png-43cc943b9c10fb9433a9e4fb3ea39996.stex" ]
+source_file="res://world/stairs/stairs_side.png"
+dest_files=[ "res://.import/stairs_side.png-b24fc00822520c9d5e1947b6b02236f3.stex" ]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=1
 flags/filter=false
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=1
 process/fix_alpha_border=true
