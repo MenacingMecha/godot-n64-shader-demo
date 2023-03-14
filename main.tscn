@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://world/Oswald-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://font/Oswald-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://pp_dither-band.tres" type="Material" id=2]
 [ext_resource path="res://world/world.tscn" type="PackedScene" id=4]
 [ext_resource path="res://options.gd" type="Script" id=5]
