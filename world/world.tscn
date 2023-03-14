@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://world/orbit_camera.gd" type="Script" id=1]
 [ext_resource path="res://world/bevel-box.obj" type="ArrayMesh" id=2]
@@ -9,11 +9,11 @@
 [ext_resource path="res://world/sparkle_mat.tres" type="Material" id=7]
 [ext_resource path="res://world/box.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://world/object_metal_mat.tres" type="Material" id=9]
+[ext_resource path="res://world/light-shaft_mat.tres" type="Material" id=10]
 [ext_resource path="res://world/crystal/crystal_mesh.tscn" type="PackedScene" id=11]
+[ext_resource path="res://world/light-shaft_Mesh.mesh" type="ArrayMesh" id=12]
 [ext_resource path="res://world/particle_reset.gd" type="Script" id=13]
 [ext_resource path="res://world/world_env.tres" type="Environment" id=15]
-[ext_resource path="res://world/light-shaft.glb" type="PackedScene" id=16]
-[ext_resource path="res://shaders/light-volume.shader" type="Shader" id=17]
 [ext_resource path="res://world/stairs/oot-stair.glb" type="PackedScene" id=18]
 [ext_resource path="res://world/stairs/side_n64_mat.tres" type="Material" id=19]
 [ext_resource path="res://world/stairs/top_n64_mat.tres" type="Material" id=20]
@@ -37,9 +37,6 @@ subdivide_depth = 25
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 3.0314, 1, 1 )
-
-[sub_resource type="ShaderMaterial" id=5]
-shader = ExtResource( 17 )
 
 [node name="World" type="Spatial"]
 
@@ -111,11 +108,11 @@ transform = Transform( 0.864371, 0, 0.502854, 0, 1, 0, -0.502854, 0, 0.864371, -
 [node name="crystal4" parent="." instance=ExtResource( 11 )]
 transform = Transform( -0.632935, 0, 0.774205, 0, 1, 0, -0.774205, 0, -0.632935, 2.30476, 0, -1.16371 )
 
-[node name="light-shaft" parent="." instance=ExtResource( 16 )]
+[node name="LightShaft" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.057, 0 )
-
-[node name="Cube" parent="light-shaft" index="0"]
-material/0 = SubResource( 5 )
+mesh = ExtResource( 12 )
+skeleton = NodePath("")
+material/0 = ExtResource( 10 )
 
 [node name="oot-stair" parent="." instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.601188, 0, 0 )
@@ -125,5 +122,4 @@ transform = Transform( 0.707284, 0, 0, 0, 0.707284, 0, 0, 0, 0.707284, 0, 0, 0 )
 material/0 = ExtResource( 19 )
 material/1 = ExtResource( 20 )
 
-[editable path="light-shaft"]
 [editable path="oot-stair"]
