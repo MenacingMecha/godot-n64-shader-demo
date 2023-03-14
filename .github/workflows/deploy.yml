@@ -1,6 +1,6 @@
 name: Deploy
 
-on: 
+on:
   push:
     tags:
       - 'v*'
@@ -17,8 +17,8 @@ jobs:
     - name: export game
       uses: firebelley/godot-export@v3.0.0
       with:
-        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.4.4/Godot_v3.4.4-stable_linux_headless.64.zip
-        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/3.4.4/Godot_v3.4.4-stable_export_templates.tpz
+        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.5.2/Godot_v3.5.2-stable_linux_headless.64.zip
+        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/3.5.2/Godot_v3.5.2-stable_export_templates.tpz
         relative_project_path: ./
         create_release: false
         use_preset_export_path: true
@@ -37,7 +37,7 @@ jobs:
       with:
         name: html5
         path: build/html5/html5/*
-  
+
   deploy-itch:
     if: github.repository == 'MenacingMecha/godot-n64-shader-demo'
     needs: [export-builds]
@@ -65,7 +65,7 @@ jobs:
           itchGameId: ${{env.ITCH_GAME_ID}}
           buildChannel: ${{matrix.channel}}
           buildNumber: ${{github.ref_name}}
-  
+
   create-release-page:
     runs-on: ubuntu-latest
     name: Create Release Page
@@ -78,7 +78,7 @@ jobs:
           token: ${{secrets.GITHUB_TOKEN}}
           draft: true
           generate_release_notes: true
-  
+
   add-release-artifacts:
     needs: [export-builds, create-release-page]
     runs-on: ubuntu-latest
