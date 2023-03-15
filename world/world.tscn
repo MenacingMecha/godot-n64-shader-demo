@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://world/box/spatial_sin_pan.gd" id="3"]
 [ext_resource type="PackedScene" path="res://world/floor/floor.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://dy02fdb77e812" path="res://world/shadow/shadow.tscn" id="6"]
-[ext_resource type="Material" path="res://world/box/sparkle_mat.tres" id="7"]
+[ext_resource type="Material" uid="uid://1k4iirdl0qtf" path="res://world/box/sparkle_mat.tres" id="7"]
 [ext_resource type="Material" uid="uid://vtfwemyyumrv" path="res://world/box/object_metal_mat.tres" id="9"]
 [ext_resource type="Material" uid="uid://blpnruy0dhpw5" path="res://world/light-shaft/light-shaft_mat.tres" id="10"]
 [ext_resource type="Material" path="res://world/floor/floor.tres" id="10_oo5rr"]
@@ -21,6 +21,8 @@
 direction = Vector3(1, 1, 1)
 spread = 180.0
 gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
 
 [sub_resource type="QuadMesh" id="2"]
 material = ExtResource("7")
@@ -55,6 +57,10 @@ script = ExtResource("3")
 
 [node name="Particles" type="GPUParticles3D" parent="BoxMetal" groups=["can_restart"]]
 transform = Transform3D(0.999973, 0.00729208, -0.00112456, -0.00729237, 0.999973, -0.000250523, 0.00112271, 0.000258713, 0.999999, 0, 0, 0)
+cast_shadow = 0
+fixed_fps = 15
+interpolate = false
+fract_delta = false
 process_material = SubResource("1")
 draw_pass_1 = SubResource("2")
 
