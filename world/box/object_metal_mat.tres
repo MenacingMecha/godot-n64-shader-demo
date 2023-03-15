@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=2]
 
-[ext_resource path="res://shaders/n64_lit_metal.shader" type="Shader" id=1]
+[ext_resource path="res://shaders/n64_lit_metal.gdshader" type="Shader" id=1]
 [ext_resource path="res://world/box/metal_tex.png" type="Texture" id=2]
 
 [resource]

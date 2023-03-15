@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=2]
 
-[ext_resource path="res://shaders/n64_unlit_particle.shader" type="Shader" id=1]
+[ext_resource path="res://shaders/n64_unlit_particle.gdshader" type="Shader" id=1]
 [ext_resource path="res://world/box/sparkle.png" type="Texture" id=2]
 
 [resource]
