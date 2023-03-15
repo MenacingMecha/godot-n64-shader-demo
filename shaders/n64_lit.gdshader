@@ -2,7 +2,7 @@ shader_type spatial;
 render_mode diffuse_lambert, vertex_lighting, cull_disabled, shadows_disabled, specular_disabled;
 
 uniform vec4 modulate_color : source_color = vec4(1.0);
-uniform sampler2D albedoTex : source_color, filter_nearest, repeat_enable;
+uniform sampler2D albedoTex : source_color, filter_nearest_mipmap, repeat_enable;
 uniform vec2 uv_scale = vec2(1.0, 1.0);
 uniform vec2 uv_offset = vec2(.0, .0);
 uniform vec2 uv_pan_velocity = vec2(0.0);

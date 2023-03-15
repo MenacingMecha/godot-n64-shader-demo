@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode diffuse_lambert, vertex_lighting, cull_disabled, shadows_disabled, specular_disabled;
 
-uniform sampler2D albedoTex : source_color, filter_nearest, repeat_enable;
+uniform sampler2D albedoTex : source_color, filter_nearest_mipmap, repeat_enable;
 uniform vec4 modulate_color : source_color = vec4(1.0);
 uniform vec4 metal_modulate_color : source_color = vec4(1.0);
 

@@ -2,7 +2,7 @@ shader_type spatial;
 render_mode depth_draw_opaque, unshaded;
 
 uniform vec4 modulate_color : source_color = vec4(1.);
-uniform sampler2D albedoTex : source_color, filter_nearest, repeat_enable;
+uniform sampler2D albedoTex : source_color, filter_nearest_mipmap, repeat_enable;
 uniform vec2 uv_scale = vec2(1.0, 1.0);
 uniform vec2 uv_offset = vec2(.0, .0);
 uniform bool billboard = false;
