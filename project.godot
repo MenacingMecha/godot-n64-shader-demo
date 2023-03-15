@@ -16,11 +16,13 @@ config/description="Demo project featuring a collection of N64 style shaders and
 https://github.com/MenacingMecha/godot-n64-shader-demo/"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0")
+run/max_fps=24
 
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=720
+window/vsync/vsync_mode=0
 window/stretch/mode="viewport"
 
 [importer_defaults]

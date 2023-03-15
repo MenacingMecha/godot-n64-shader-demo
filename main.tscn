@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp26i51kj0tvp"]
+[gd_scene load_steps=4 format=3 uid="uid://dp26i51kj0tvp"]
 
 [ext_resource type="Material" uid="uid://c8e7ck31g8wbs" path="res://post-process/pp_dither-band.tres" id="2"]
-[ext_resource type="PackedScene" path="res://gui/options.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://dcy86n4si7d7v" path="res://world/world.tscn" id="4"]
 [ext_resource type="Material" uid="uid://j8bsdv5386ih" path="res://post-process/pp_h-blur.tres" id="6"]
 
@@ -59,9 +58,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 4
 text = "TEXT"
-
-[node name="GUILayer" type="CanvasLayer" parent="."]
-layer = 0
-
-[node name="Options" parent="GUILayer" instance=ExtResource("3")]
-anchors_preset = -1
