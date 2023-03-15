@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp26i51kj0tvp"]
+[gd_scene load_steps=7 format=3 uid="uid://dp26i51kj0tvp"]
 
+[ext_resource type="FontFile" uid="uid://dc4mm784qpajc" path="res://gui/font/Oswald-Bold.ttf" id="1"]
 [ext_resource type="Material" uid="uid://c8e7ck31g8wbs" path="res://post-process/pp_dither-band.tres" id="2"]
 [ext_resource type="PackedScene" uid="uid://dcy86n4si7d7v" path="res://world/world.tscn" id="4"]
 [ext_resource type="Material" uid="uid://j8bsdv5386ih" path="res://post-process/pp_h-blur.tres" id="6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8ke5"]
+bg_color = Color(0.494118, 0.270588, 0.529412, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="FontVariation" id="FontVariation_j0k5a"]
+base_font = ExtResource("1")
+spacing_glyph = 2
 
 [node name="Main" type="Node"]
 
@@ -10,6 +22,7 @@
 layer = 0
 
 [node name="HBlur" type="SubViewportContainer" parent="N64Layer"]
+texture_filter = 1
 material = ExtResource("6")
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,10 +64,14 @@ anchor_right = 0.86
 anchor_bottom = 0.892
 offset_right = 40.0
 offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f8ke5")
 
 [node name="Label" type="Label" parent="N64Layer/HBlur/SubViewport/DitherBand/SubViewport/Panel"]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_j0k5a")
 text = "TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
