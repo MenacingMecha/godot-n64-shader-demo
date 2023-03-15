@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp26i51kj0tvp"]
 
-[ext_resource type="Material" path="res://post-process/pp_dither-band.tres" id="2"]
+[ext_resource type="Material" uid="uid://c8e7ck31g8wbs" path="res://post-process/pp_dither-band.tres" id="2"]
 [ext_resource type="PackedScene" path="res://gui/options.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://dcy86n4si7d7v" path="res://world/world.tscn" id="4"]
-[ext_resource type="Material" path="res://post-process/pp_h-blur.tres" id="6"]
+[ext_resource type="Material" uid="uid://j8bsdv5386ih" path="res://post-process/pp_h-blur.tres" id="6"]
 
 [node name="Main" type="Node"]
 
@@ -21,6 +21,7 @@ stretch_shrink = 3
 
 [node name="SubViewport" type="SubViewport" parent="N64Layer/HBlur"]
 handle_input_locally = false
+canvas_item_default_texture_filter = 0
 size = Vector2i(320, 240)
 render_target_update_mode = 4
 
@@ -34,6 +35,8 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="N64Layer/HBlur/SubViewport/DitherBand"]
 handle_input_locally = false
+msaa_3d = 1
+canvas_item_default_texture_filter = 0
 audio_listener_enable_2d = true
 audio_listener_enable_3d = true
 size = Vector2i(320, 240)

@@ -1,7 +1,7 @@
 shader_type canvas_item;
 // originally based on https://github.com/WittyCognomen/godot-psx-shaders-demo/blob/master/shaders/psx_dither_post.shader
 
-uniform sampler2D dither_tex: hint_default_white;
+uniform sampler2D dither_tex: hint_default_white, filter_nearest, repeat_enable;
 uniform float col_depth = 24.0;
 uniform bool dither_banding = true;
 uniform bool enabled = true;

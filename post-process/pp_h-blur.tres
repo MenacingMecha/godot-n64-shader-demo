@@ -1,9 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://j8bsdv5386ih"]
 
-[ext_resource path="res://shaders/gaussian-blur.gdshader" type="Shader" id=1]
+[ext_resource type="Shader" path="res://shaders/gaussian-blur.gdshader" id="1"]
 
 [resource]
-shader = ExtResource( 1 )
-shader_param/h = 1.0
-shader_param/v = 0.0
-shader_param/enabled = true
+shader = ExtResource("1")
+shader_parameter/h = 1.0
+shader_parameter/v = 0.0
+shader_parameter/enabled = false
