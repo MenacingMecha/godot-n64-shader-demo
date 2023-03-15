@@ -7,6 +7,6 @@ size = Vector2( 40, 40 )
 subdivide_width = 25
 subdivide_depth = 25
 
-[node name="Floor" type="MeshInstance"]
+[node name="Floor" type="MeshInstance3D"]
 mesh = SubResource( 3 )
 material/0 = ExtResource( 1 )

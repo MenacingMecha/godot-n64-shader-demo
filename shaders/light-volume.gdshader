@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded, shadows_disabled, blend_add, depth_draw_alpha_prepass, cull_disabled;
+render_mode unshaded, shadows_disabled, blend_add, depth_draw_opaque, cull_disabled;
 
 void fragment()
 {

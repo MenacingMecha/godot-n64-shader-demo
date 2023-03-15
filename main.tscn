@@ -1,83 +1,64 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://dp26i51kj0tvp"]
 
-[ext_resource path="res://gui/font/Oswald-Bold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://post-process/pp_dither-band.tres" type="Material" id=2]
-[ext_resource path="res://gui/options.tscn" type="PackedScene" id=3]
-[ext_resource path="res://world/world.tscn" type="PackedScene" id=4]
-[ext_resource path="res://post-process/pp_h-blur.tres" type="Material" id=6]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.509804, 0.196078, 0.607843, 1 )
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="DynamicFont" id=2]
-outline_color = Color( 0.0941176, 0.0705882, 0.364706, 1 )
-font_data = ExtResource( 1 )
+[ext_resource type="Material" path="res://post-process/pp_dither-band.tres" id="2"]
+[ext_resource type="PackedScene" path="res://gui/options.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dcy86n4si7d7v" path="res://world/world.tscn" id="4"]
+[ext_resource type="Material" path="res://post-process/pp_h-blur.tres" id="6"]
 
 [node name="Main" type="Node"]
 
 [node name="N64Layer" type="CanvasLayer" parent="."]
 layer = 0
 
-[node name="HBlur" type="ViewportContainer" parent="N64Layer"]
-material = ExtResource( 6 )
+[node name="HBlur" type="SubViewportContainer" parent="N64Layer"]
+material = ExtResource("6")
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 stretch = true
 stretch_shrink = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Viewport" type="Viewport" parent="N64Layer/HBlur"]
-size = Vector2( 320, 240 )
+[node name="SubViewport" type="SubViewport" parent="N64Layer/HBlur"]
 handle_input_locally = false
-render_target_update_mode = 3
+size = Vector2i(320, 240)
+render_target_update_mode = 4
 
-[node name="DitherBand" type="ViewportContainer" parent="N64Layer/HBlur/Viewport"]
-material = ExtResource( 2 )
+[node name="DitherBand" type="SubViewportContainer" parent="N64Layer/HBlur/SubViewport"]
+material = ExtResource("2")
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 stretch = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Viewport" type="Viewport" parent="N64Layer/HBlur/Viewport/DitherBand"]
-size = Vector2( 320, 240 )
+[node name="SubViewport" type="SubViewport" parent="N64Layer/HBlur/SubViewport/DitherBand"]
 handle_input_locally = false
-msaa = 2
-hdr = false
-render_target_update_mode = 3
 audio_listener_enable_2d = true
 audio_listener_enable_3d = true
+size = Vector2i(320, 240)
+render_target_update_mode = 4
 
-[node name="World" parent="N64Layer/HBlur/Viewport/DitherBand/Viewport" instance=ExtResource( 4 )]
+[node name="World" parent="N64Layer/HBlur/SubViewport/DitherBand/SubViewport" instance=ExtResource("4")]
 
-[node name="Panel" type="Panel" parent="N64Layer/HBlur/Viewport/DitherBand/Viewport"]
+[node name="Panel" type="Panel" parent="N64Layer/HBlur/SubViewport/DitherBand/SubViewport"]
+anchors_preset = -1
 anchor_left = 0.803
 anchor_top = 0.839
 anchor_right = 0.86
 anchor_bottom = 0.892
-margin_right = 40.0
-margin_bottom = 20.0
-custom_styles/panel = SubResource( 1 )
+offset_right = 40.0
+offset_bottom = 20.0
 
-[node name="Label" type="Label" parent="N64Layer/HBlur/Viewport/DitherBand/Viewport/Panel"]
+[node name="Label" type="Label" parent="N64Layer/HBlur/SubViewport/DitherBand/SubViewport/Panel"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 2 )
 text = "TEXT"
-align = 1
-valign = 1
 
 [node name="GUILayer" type="CanvasLayer" parent="."]
 layer = 0
 
-[node name="Options" parent="GUILayer" instance=ExtResource( 3 )]
+[node name="Options" parent="GUILayer" instance=ExtResource("3")]
+anchors_preset = -1

@@ -1,10 +1,11 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://vtfwemyyumrv"]
 
-[ext_resource path="res://shaders/n64_lit_metal.gdshader" type="Shader" id=1]
-[ext_resource path="res://world/box/metal_tex.png" type="Texture" id=2]
+[ext_resource type="Shader" path="res://shaders/n64_lit_metal.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://l4bdo700r22l" path="res://world/box/metal_tex.png" id="2"]
 
 [resource]
-shader = ExtResource( 1 )
-shader_param/modulate_color = Color( 0.94902, 0.6, 0, 1 )
-shader_param/metal_modulate_color = Color( 1, 1, 1, 1 )
-shader_param/albedoTex = ExtResource( 2 )
+render_priority = 0
+shader = ExtResource("1")
+shader_parameter/modulate_color = Color(0.94902, 0.6, 0, 1)
+shader_parameter/metal_modulate_color = Color(1, 1, 1, 1)
+shader_parameter/albedoTex = ExtResource("2")

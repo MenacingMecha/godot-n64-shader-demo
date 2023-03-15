@@ -1,6 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://blpnruy0dhpw5"]
 
-[ext_resource path="res://shaders/light-volume.gdshader" type="Shader" id=1]
+[ext_resource type="Shader" path="res://shaders/light-volume.gdshader" id="1"]
 
 [resource]
-shader = ExtResource( 1 )
+render_priority = 0
+shader = ExtResource("1")

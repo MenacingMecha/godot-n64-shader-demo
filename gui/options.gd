@@ -2,12 +2,12 @@ extends Node
 
 const DEFAULT_FOV := 24
 
-export(Material) var post_process_blur: Material
-export(Material) var post_process_dither_band: Material
-export(Environment) var environment: Environment
-export(NodePath) var path_to_world_viewport: NodePath
+@export var post_process_blur: Material: Material
+@export var post_process_dither_band: Material: Material
+@export var environment: Environment: Environment
+@export var path_to_world_viewport: NodePath: NodePath
 
-onready var world_viewport: Viewport = get_node(path_to_world_viewport)
+@onready var world_viewport: SubViewport = get_node(path_to_world_viewport)
 
 
 func _ready():
@@ -19,15 +19,15 @@ func set_fov(value: int):
 
 
 func set_post_process(enabled: bool):
-	post_process_blur.set_shader_param("enabled", enabled)
+	post_process_blur.set_shader_parameter("enabled", enabled)
 
 
 func set_color_depth(value: int):
-	post_process_dither_band.set_shader_param("col_depth", value)
+	post_process_dither_band.set_shader_parameter("col_depth", value)
 
 
 func set_dither_banding(enabled: bool):
-	post_process_dither_band.set_shader_param("dither_banding", enabled)
+	post_process_dither_band.set_shader_parameter("dither_banding", enabled)
 
 
 func set_fog_enabled(enabled: bool):
@@ -55,8 +55,8 @@ func set_ambient_energy(value: float):
 
 
 func set_aa(enabled: bool):
-	world_viewport.msaa = Viewport.MSAA_4X if enabled else Viewport.MSAA_DISABLED
+	world_viewport.msaa = SubViewport.MSAA_4X if enabled else SubViewport.MSAA_DISABLED
 
 
 func set_limit_colors(enabled: bool):
-	post_process_dither_band.set_shader_param("enabled", enabled)
+	post_process_dither_band.set_shader_parameter("enabled", enabled)
