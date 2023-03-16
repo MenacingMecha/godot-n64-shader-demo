@@ -1,6 +1,6 @@
 # Godot N64 Style Demo
 
-![Godot Version](https://img.shields.io/badge/godot-v3.4-blue)
+![Godot Version](https://img.shields.io/badge/godot-v4.0-blue)
 [![License](https://img.shields.io/github/license/MenacingMecha/godot-n64-shader-demo)](https://github.com/MenacingMecha/godot-n64-shader-demo/blob/master/LICENSE)
 
 [Play demo in browser!](https://menacingmecha.itch.io/godot-n64-shader-demo)
@@ -21,14 +21,17 @@ A collection of shaders and materials for Godot engine that aim to recreate the 
 - Billboard sprites
 - Fog to limit draw distance
 
+## Demo Controls
+
+- Space: Toggle camera and object movement
+- R: Reset scene
+
 ## Tips for best results
 
 - Use very low poly models
     - Prefer smooth-shading over flat-shading wherever possible
 - Keep textures as low resolution as humanly possible
     - Huge blurry texels are the cornerstone of the N64 look
-    - Make sure filtering is disabled - the filtering is handled in the shader
-    - Make sure mip-maps are enabled
     - Rely on a mix of vertex colours and texture maps, instead of higher detailed texture maps wherever possible
 - Keep your internal resolution low
     - Resolution on N64 is a complicated affair. While the system would output to video at certain specific resolutions, games themselves would have their own separate internal resolutions
@@ -37,6 +40,18 @@ A collection of shaders and materials for Godot engine that aim to recreate the 
 - Use as basic of a lighting set up as you can get away with
     - Modern lighting techniques are a very easy way to break the illusion of appearing like early 3D!
     - Where possible, prefer to use white ambient light, with vertex colours on geometry to fake lighting
+- Prefer additive blending to transparent blending
+
+## Changes from v1.x
+
+### Fog
+
+Godot 4.0 changed how environmental fog worked, the key part being the removal of the "start distance" and "end distance" properties.
+While a manual workaround could be implemented, there is work being done to restore this functionality in a later version.
+
+### Runtime options
+
+In order to release working Godot 4 shaders as soon as possible, runtime options for the demo will be re-implemented at a later date.
 
 ## Credits
 
