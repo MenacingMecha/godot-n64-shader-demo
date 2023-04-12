@@ -22,8 +22,8 @@ run/max_fps=24
 
 window/size/viewport_width=960
 window/size/viewport_height=720
-window/vsync/vsync_mode=0
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
 
 [importer_defaults]
 

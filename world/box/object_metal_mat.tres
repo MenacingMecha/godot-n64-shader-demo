@@ -6,6 +6,5 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1")
-shader_parameter/modulate_color = Color(0.94902, 0.6, 0, 1)
-shader_parameter/metal_modulate_color = Color(1, 1, 1, 1)
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
 shader_parameter/albedoTex = ExtResource("2")
