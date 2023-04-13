@@ -9,6 +9,7 @@ shader = ExtResource("1")
 shader_parameter/modulate_color = Color(1, 1, 1, 1)
 shader_parameter/uv_scale = Vector2(1, 1)
 shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_pan_velocity = Vector2(0, 0)
 shader_parameter/billboard = true
 shader_parameter/y_billboard = false
 shader_parameter/alpha_scissor = 0.1

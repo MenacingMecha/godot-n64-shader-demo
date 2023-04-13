@@ -95,9 +95,7 @@ void fragment()
 	ALBEDO = (color_base * texture_color).rgb;
 #endif
 
-#ifdef LIGHT_VOLUME
-	ALPHA = 1.0 - UV.y;
-#elif defined(ALPHA_BLEND) || defined(ALPHA_SCISSOR)
+#if defined(ALPHA_BLEND) || defined(ALPHA_SCISSOR)
 	ALPHA = texture_color.a * color_base.a;
 #endif
 
