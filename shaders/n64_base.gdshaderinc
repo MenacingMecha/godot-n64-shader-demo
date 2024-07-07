@@ -1,6 +1,7 @@
 render_mode LIT, cull_disabled, shadows_disabled, specular_disabled, DEPTH, BLEND;
 
 uniform vec4 modulate_color : source_color = vec4(1.0);
+uniform float vtx_color_strength : hint_range(0, 5) = 1;
 
 #ifndef NO_TEXTURE
 uniform sampler2D albedoTex : source_color, filter_nearest, repeat_enable;
@@ -49,8 +50,7 @@ vec4 n64BilinearFilter(vec4 vtx_color, vec2 texcoord) {
 
 	diffuseColor = (diffuseColor + interp_x * (sample_a - diffuseColor) + interp_y * (sample_b - diffuseColor))*(1.0-step(1.0, interp_x + interp_y));
 	diffuseColor += (sample_c + (1.0-interp_x) * (sample_b - sample_c) + (1.0-interp_y) * (sample_a - sample_c))*step(1.0, interp_x + interp_y);
-
-    return diffuseColor * vtx_color;
+    return diffuseColor;
 }
 
 void vertex()
@@ -92,7 +92,9 @@ void fragment()
 	ALBEDO = color_base.rgb;
 #else
 	vec4 texture_color = n64BilinearFilter(COLOR, texture_uv);
-	ALBEDO = (color_base * texture_color).rgb;
+	vec4 vertexColor = COLOR;
+	texture_color.rgb *= (vertexColor.rgb * vtx_color_strength);
+	ALBEDO = (texture_color).rgb;
 #endif
 
 #if defined(ALPHA_BLEND) || defined(ALPHA_SCISSOR)
